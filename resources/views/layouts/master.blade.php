@@ -25,6 +25,12 @@ a {
 }
 </style>
 <body>
+
+@if (Auth::check())
+<a href="/logout">Logout</a>
+@endif
+
+
     @yield('content')
 </body>
 </html>
