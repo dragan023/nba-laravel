@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'TeamsController@index')->name('home');
-Route::get('/teams/{team}', 'TeamsController@show');
+Route::get('/teams/{team}', 'TeamsController@show')->name('team');
+Route::post('/teams/{team}/comments', 'CommentController@store');
 Route::get('/players/{player}', 'PlayerController@show');
 Route::get('/register', 'RegisterController@create');
 Route::get('/login', 'LoginController@create')->name('login');

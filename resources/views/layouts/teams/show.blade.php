@@ -19,4 +19,21 @@
         </a>
         <hr>
     @endforeach
+
+<h4>Comments:</h4>
+    @foreach($team->comments as $comment)
+        <div class="player-card">
+            <p>{{ $comment->content }}</p>
+        </div>
+        <p>By: {{ $comment->user->name }}</p>
+        <hr>
+    @endforeach
+
+    <form action="/teams/{{ $team->id }}/comments" method="POST">
+        @csrf
+        <label for="content">Add comment</label>
+        <input type="text" name="content" id="content">
+        
+        <button type="submit">Comment</button>
+    </form>
 @endsection
