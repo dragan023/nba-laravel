@@ -7,7 +7,10 @@ use \App\Team;
 
 class TeamsController extends Controller
 {
-    //
+    public function __construct() {
+        $this->middleware('checkAuth');
+    }
+
     public function index() {
         $teams = Team::all();
 

@@ -8,6 +8,10 @@ use \App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
+    public function __construct() {
+        $this->middleware('checkGuest', ['except' => ['destroy']]);
+    }
+
     public function create() {
         return view('layouts.auth.login');
     }

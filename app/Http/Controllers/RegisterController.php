@@ -8,7 +8,10 @@ use \App\User;
 
 class RegisterController extends Controller
 {
-    //
+    public function __construct() {
+        $this->middleware('checkGuest');
+    }
+
     public function create() {
         return view('layouts.auth.register');
     }
